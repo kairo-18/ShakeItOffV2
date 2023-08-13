@@ -21,13 +21,14 @@
 
         </div>
         <div class="total-price">
-          <span class="totalText" id="totalText">Total: $150</span>
+          <span class="totalText" id="totalText">Total: ₱</span>
         </div>
 
         <div class="pay-buttons">
           <button id="paycash-button">PAY CASH</button>
 
-          <button id="cancel-button">X</button>
+          <button id="cancel-button" onclick="cancelOrder()">X</button>
+          
         </div>
 
       </div>
@@ -128,7 +129,7 @@
 
 
 
-  <script src="index.js"></script>
+  <script type="text/javascript" src="index.js"></script>
 </body>
 
 </html>

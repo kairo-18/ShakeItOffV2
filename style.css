@@ -1,178 +1,189 @@
 body {
-  margin: 0;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .container {
-  width: 100%;
-  height: 93.5vh;
+    width: 100%;
+    height: 93.5vh;
 }
 
 .nav {
-  width: 100%;
-  height: 50px;
-  background-color: #006ab6;
+    width: 100%;
+    height: 50px;
+    background-color: #006ab6;
 }
 
 .content-wrapper {
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: 37% 10% auto;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 37% 10% auto;
 }
 
 .column1 {
-  background-color: #acacac;
-  display: grid;
-  grid-template-rows: 70% 13% auto;
+    background-color: #acacac;
+    display: grid;
+    grid-template-rows: 70% 13% auto;
 }
+
 .column2 {
-  display: grid;
-  grid-template-rows: auto auto auto auto;
+    display: grid;
+    grid-template-rows: auto auto auto auto;
 }
 
 .row {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .row:first-child {
-  background-color: #fd5e5e;
+    background-color: #fd5e5e;
 }
 
 .row:nth-child(2) {
-  background-color: #fbf5c5;
+    background-color: #fbf5c5;
 }
 
 .row:nth-child(3) {
-  background-color: #c2f3aa;
+    background-color: #c2f3aa;
 }
 
 .row:nth-child(4) {
-  background-color: #8bdef8;
+    background-color: #8bdef8;
 }
 
-#addonsText{
+#addonsText {
     display: block;
     margin-left: 20px;
     margin-top: 15px;
     font-size: 20px;
 }
 
-.orders-wrapper{
-    height:95%;
-    margin:10px;
+.orders-wrapper {
+    height: 95%;
+    margin: 10px;
     background-color: #ffffff;
 }
 
-.order{
+.order {
     padding: 5px;
-    margin-left:7px;
+    margin-left: 7px;
     font-size: 16px;
     display: block;
 }
 
-.total-price{
-    width:95%;
-    margin-left:10px;
+.total-price {
+    width: 95%;
+    margin-left: 10px;
     background-color: #dbdbdb;
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     font-size: 32px;
 }
 
-.pay-buttons{
-    width:95%;
+.pay-buttons {
+    width: 95%;
     height: 95%;
-    margin-left:10px;
+    margin-left: 10px;
     margin-top: 5px;
-    display:grid;
+    display: grid;
     grid-template-columns: 80% auto;
 }
 
-#paycash-button{
+#paycash-button {
     background-color: #7ae24a;
 }
 
-#cancel-button{
+#cancel-button {
     background-color: #fa4a4a;
 }
 
 
 .column3 {
-    width:98%;
-    margin-left:5px;
+    width: 98%;
+    margin-left: 5px;
     display: grid;
     grid-template-rows: 10% auto;
 }
 
-.Shakes{
+.Shakes {
     display: grid;
     grid-template-columns: auto auto auto;
 }
 
-.column3 button{
+.column3 button {
     font-size: large;
 }
 
-.Milktea{
+.Milktea {
     display: none;
     grid-template-columns: auto auto auto;
 }
 
-.FruitTea{
+.FruitTea {
     display: none;
     grid-template-columns: auto auto auto;
 }
 
-.FruitShake{
-    display:none;
+.FruitShake {
+    display: none;
     grid-template-columns: auto auto auto;
 }
 
-.popupSize{
-    position: fixed; /* Positioned relative to the viewport */
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Adjust to center perfectly */
-    z-index: 9999; /* Place on top of everything */
+.popupSize {
+    position: fixed;
+    /* Positioned relative to the viewport */
+    top: 50%;
+    /* Center vertically */
+    left: 50%;
+    /* Center horizontally */
+    transform: translate(-50%, -50%);
+    /* Adjust to center perfectly */
+    z-index: 9999;
+    /* Place on top of everything */
     width: 40%;
     height: 300px;
     background-color: #006ab6;
-    display:grid;
+    display: grid;
 
     visibility: hidden;
 }
 
-.popupSize button{
-    margin-left:20px;
+.popupSize button {
+    margin-left: 20px;
     margin-top: 5px;
     width: 90%;
     height: 90%;
 }
 
-.popupAddons{
-    position: fixed; /* Positioned relative to the viewport */
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Adjust to center perfectly */
-    z-index: 9999; /* Place on top of everything */
+.popupAddons {
+    position: fixed;
+    /* Positioned relative to the viewport */
+    top: 50%;
+    /* Center vertically */
+    left: 50%;
+    /* Center horizontally */
+    transform: translate(-50%, -50%);
+    /* Adjust to center perfectly */
+    z-index: 9999;
+    /* Place on top of everything */
     width: 40%;
     height: 500px;
     background-color: #006ab6;
-    display:grid;
+    display: grid;
     grid-template-rows: auto auto auto auto auto auto auto auto auto 3%;
 
     visibility: hidden;
 }
 
-.popupAddons button{
-    margin-left:20px;
+.popupAddons button {
+    margin-left: 20px;
     margin-top: 5px;
     width: 90%;
     height: 90%;
@@ -186,7 +197,7 @@ body {
     border: 1px solid black;
     border-radius: 12px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    margin-left:14px;
+    margin-left: 14px;
 }
 
 .quantity span {
@@ -202,38 +213,43 @@ body {
     border-left: 2px solid rgba(0, 0, 0, 0.2);
 }
 
-.quantity span.plus:active{
+.quantity span.plus:active {
     opacity: 30%;
     background-color: #212121;
 }
 
-.quantity span.minus:active{
+.quantity span.minus:active {
     opacity: 30%;
     background-color: #212121;
 }
 
-.popupQuantity{
-    position: fixed; /* Positioned relative to the viewport */
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Adjust to center perfectly */
-    z-index: 9999; /* Place on top of everything */
+.popupQuantity {
+    position: fixed;
+    /* Positioned relative to the viewport */
+    top: 50%;
+    /* Center vertically */
+    left: 50%;
+    /* Center horizontally */
+    transform: translate(-50%, -50%);
+    /* Adjust to center perfectly */
+    z-index: 9999;
+    /* Place on top of everything */
     width: 40%;
     height: 300px;
     background-color: #006ab6;
     display: flex;
-    justify-content: center; /* Horizontally center */
-    align-items: center; /* Vertically center */
+    justify-content: center;
+    /* Horizontally center */
+    align-items: center;
+    /* Vertically center */
     flex-direction: column;
 
     visibility: hidden;
 }
 
-#confirmQuantity{
+#confirmQuantity {
     margin-top: 20px;
     width: 30%;
     height: 15%;
-    background-color:#7ae24a;
+    background-color: #7ae24a;
 }
-
-

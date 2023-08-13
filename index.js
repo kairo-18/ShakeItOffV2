@@ -103,13 +103,10 @@ function DisplayArray() {
     price[x] = 0;
     computeOrderAndSizePrices();
     computePriceWithQuantity();
-    if(addons[x] != ""){
+    if (addons[x] != "") {
         computerAddonsPrices();
     }
     writeTotalPrice();
-
-
-
 
     a = 1;
     x++;
@@ -309,34 +306,31 @@ function computeOrderAndSizePrices() {
     }
 }
 
-function computerAddonsPrices(){
+function computerAddonsPrices() {
     let addonsArray = addons[x].split(",");
     let addonsPrice = 0;
 
-    for(var i = 0; i < addonsArray.length; i++){
-        if(addonsArray[i] == "Cream Cheese"){
+    for (var i = 0; i < addonsArray.length; i++) {
+        if (addonsArray[i] == "Cream Cheese") {
             addonsPrice += 10;
-        }else{
+        } else {
             addonsPrice += 9;
         }
-
-
     }
 
-
-    price[x]+=addonsPrice;
+    price[x] += addonsPrice;
 }
 
-function computePriceWithQuantity(){
+function computePriceWithQuantity() {
     price[x] = price[x] * quantity[x];
 }
 
-function writeTotalPrice(){
+function writeTotalPrice() {
     let totalPrice = 0;
-    for(var i = 0; i < price.length; i++){
+    for (var i = 0; i < price.length; i++) {
         totalPrice += price[i];
     }
-    document.getElementById("totalText").innerHTML = "Total: $" + totalPrice;
+    document.getElementById("totalText").innerHTML = "Total: ₱" + totalPrice;
 }
 
 function showSizes() {
@@ -356,3 +350,18 @@ function showAddons() {
 function hideQuantity() {
     document.querySelector(".popupQuantity").style.visibility = "hidden";
 }
+
+function cancelOrder() {
+    orders.splice(0, orders.length);
+    size.splice(0, size.length);
+    addons.splice(0, addons.length);
+    quantity.splice(0, quantity.length);
+    price.splice(0, price.length);
+
+    document.getElementById("totalText").innerHTML = "";
+    a = 1;
+    x = 0;
+    temp = "";
+    num.innerText = 1;
+}
+
