@@ -8,6 +8,7 @@ var size = [];
 var quantity = [];
 var price = [];
 var x = 0;
+let totalPrice = 0;
 
 let a = 1;
 
@@ -87,18 +88,6 @@ function addQuantityValueToArray() {
 }
 
 function DisplayArray() {
-    var order =
-        "" +
-        orders[x] +
-        " <strong>Size:</strong> " +
-        size[x] +
-        " <strong>Adns:</strong> " +
-        addons[x] +
-        " <strong>Qty:</strong> " +
-        quantity[x];
-    ordersWrapper.innerHTML += "<span class='order'>" + order + "</span>";
-    num.innerText = 1;
-    document.getElementById("addonsText").innerHTML = "Addons: ";
 
     price[x] = 0;
     computeOrderAndSizePrices();
@@ -107,6 +96,22 @@ function DisplayArray() {
         computerAddonsPrices();
     }
     writeTotalPrice();
+
+    var order =
+        "" +
+        orders[x] +
+        " <strong>Size:</strong> " +
+        size[x] +
+        " <strong>Adns:</strong> " +
+        addons[x] +
+        " <strong>Qty:</strong> " +
+        quantity[x] + 
+        "<strong> Price: </strong>" + 
+        price[x];
+    ordersWrapper.innerHTML += "<span class='order'>" + order + "</span>";
+    num.innerText = 1;
+    document.getElementById("addonsText").innerHTML = "Addons: ";
+
 
     a = 1;
     x++;
@@ -326,10 +331,7 @@ function computePriceWithQuantity() {
 }
 
 function writeTotalPrice() {
-    let totalPrice = 0;
-    for (var i = 0; i < price.length; i++) {
-        totalPrice += price[i];
-    }
+    totalPrice += price[x];
     document.getElementById("totalText").innerHTML = "Total: ₱" + totalPrice;
 }
 
@@ -358,10 +360,51 @@ function cancelOrder() {
     quantity.splice(0, quantity.length);
     price.splice(0, price.length);
 
-    document.getElementById("totalText").innerHTML = "";
+    document.getElementById("totalText").innerHTML = "Total: ₱";
+    ordersWrapper.innerHTML = "<h2 style='margin-left: 5px;'>Orders</h2>";
     a = 1;
     x = 0;
     temp = "";
     num.innerText = 1;
+    totalPrice = 0;
+    cashInput.value = "";
+}
+
+const cashInput = document.getElementById("CashIn");
+
+function writeToCash(val) {
+    cashInput.value = val;
+}
+
+function showPopUpCash() {
+    if (orders.length != 0) {
+        const popUpCash = document.getElementById("popupPayCash");
+        popUpCash.style.visibility = "visible";
+    } else {
+        alert("Order First");
+    }
+
+}
+
+function hidePopUpCash() {
+    const popUpCash = document.getElementById("popupPayCash");
+    popUpCash.style.visibility = "hidden";
+}
+
+function calculateChange() {
+
+    if (cashInput.value < totalPrice) {
+        alert("Insufficient cash");
+    } else {
+        let change = cashInput.value - totalPrice;
+        return change;
+    }
+}
+
+function popupChange(change) {
+    document.getElementById("cashText").innerText = "Cash Inputted: " + cashInput.value;
+    document.getElementById("changeText").innerText = "Change: " + change;
+
+    document.getElementById("popupChange").style.visibility = "visible";
 }
 

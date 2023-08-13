@@ -25,10 +25,10 @@
         </div>
 
         <div class="pay-buttons">
-          <button id="paycash-button">PAY CASH</button>
+          <button id="paycash-button" onclick="showPopUpCash();">PAY CASH</button>
 
           <button id="cancel-button" onclick="cancelOrder()">X</button>
-          
+
         </div>
 
       </div>
@@ -123,6 +123,37 @@
       </div>
 
       <button onclick="hideQuantity(); addQuantityValueToArray();" id="confirmQuantity">Confirm</button>
+    </div>
+
+    <div id="popupPayCash" class="popupPayCash">
+      <div></div>
+      <input type="number" id="CashIn" class="CashIn" placeholder="Amount of Cash">
+      <div></div>
+      <div class="cashInContainer">
+
+        <button value="50" onclick="writeToCash(this.value);">50</button>
+        <button value="100" onclick="writeToCash(this.value);">100</button>
+        <button value="150" onclick="writeToCash(this.value);">150</button>
+        <button value="200" onclick="writeToCash(this.value);">200</button>
+        <button value="250" onclick="writeToCash(this.value);">250</button>
+        <button value="300" onclick="writeToCash(this.value);">300</button>
+      </div>
+
+      <div></div>
+
+      <div class="buttonPaymentContainer">
+        <button onclick="hidePopUpCash(); popupChange(calculateChange());" class="confirmPayment">Confirm</button>
+        <div></div>
+        <button onclick="cancelOrder(); hidePopUpCash();" class="cancelPayment">Cancel</button>
+      </div>
+    </div>
+
+    <div class="popupChange" id="popupChange">
+      <div></div>
+          <span class="cashInText" id="cashText">Cash In: </span>
+          <span class="changeText" id="changeText">Change: </span>
+
+          <button onclick="" class="donePayment">Done</button>
     </div>
 
   </div>

@@ -253,3 +253,90 @@ body {
     height: 15%;
     background-color: #7ae24a;
 }
+
+.popupPayCash{
+    position: fixed;
+    /* Positioned relative to the viewport */
+    top: 50%;
+    /* Center vertically */
+    left: 50%;
+    /* Center horizontally */
+    transform: translate(-50%, -50%);
+    /* Adjust to center perfectly */
+    z-index: 9999;
+    /* Place on top of everything */
+    width: 40%;
+    height: 500px;
+    background-color: #006ab6;
+    display: grid;
+    grid-template-rows:  5% 20% 5% auto 5% 10% 5%;
+
+    visibility: hidden;
+}
+
+#CashIn{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 30px;
+}
+
+.cashInContainer{
+    display:grid;
+    width: 90%;
+    height:100%;
+    margin-left:auto;
+    margin-right: auto;
+    grid-template-columns: auto auto auto;
+}
+
+.cashInContainer button{
+    font-size: 30px;
+}
+
+.buttonPaymentContainer{
+    width: 50%;
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: auto 10% auto;
+}
+
+.buttonPaymentContainer button:first-child{
+    background-color:#7ae24a;
+}
+
+.buttonPaymentContainer button:last-child{
+    background-color: #fa4a4a;
+}
+
+.popupChange{
+    font-size: 30px;
+    position: fixed;
+    /* Positioned relative to the viewport */
+    top: 50%;
+    /* Center vertically */
+    left: 50%;
+    /* Center horizontally */
+    transform: translate(-50%, -50%);
+    /* Adjust to center perfectly */
+    z-index: 9999;
+    /* Place on top of everything */
+    width: 40%;
+    height: 500px;
+    background-color: #006ab6;
+    display: grid;
+    grid-template-rows: 10% 35% 35% auto;
+
+    visibility: hidden;
+}
+
+.popupChange span{
+    margin: 0 auto 0 auto;
+}
+
+.popupChange button{
+    width:40%;
+    height: 60%;
+    margin: 0 auto 0 auto;
+}
