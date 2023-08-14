@@ -1,3 +1,9 @@
+<?php
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -142,7 +148,7 @@
       <div></div>
 
       <div class="buttonPaymentContainer">
-        <button onclick="hidePopUpCash(); popupChange(calculateChange());" class="confirmPayment">Confirm</button>
+        <button onclick="popupChange(calculateChange());" class="confirmPayment">Confirm</button>
         <div></div>
         <button onclick="cancelOrder(); hidePopUpCash();" class="cancelPayment">Cancel</button>
       </div>
@@ -150,13 +156,25 @@
 
     <div class="popupChange" id="popupChange">
       <div></div>
-          <span class="cashInText" id="cashText">Cash In: </span>
-          <span class="changeText" id="changeText">Change: </span>
+      <span class="cashInText" id="cashText">Cash In: </span>
+      <span class="changeText" id="changeText">Change: </span>
 
-          <button onclick="" class="donePayment">Done</button>
+      <input type="submit" name="submit" value="Done" onclick="jsArrayToPhp(); hideDonePopup();" class="donePayment">
     </div>
 
+    <input type="hidden" name="hiddenPrice" id="hiddenPrice" value="" required>
+
+    <input type="hidden" name="hiddenOrders" id="hiddenOrders" value="" required>
+
+    <input type="hidden" name="hiddenSize" id="hiddenSize" value="" required>
+
+    <input type="hidden" name="hiddenAddons" id="hiddenAddons" value="" required>
+
+    <input type="hidden" name="hiddenQuantity" id="hiddenQuantity" value="" required>
+
   </div>
+
+
 
 
 

@@ -105,8 +105,8 @@ function DisplayArray() {
         " <strong>Adns:</strong> " +
         addons[x] +
         " <strong>Qty:</strong> " +
-        quantity[x] + 
-        "<strong> Price: </strong>" + 
+        quantity[x] +
+        "<strong> Price: </strong>" +
         price[x];
     ordersWrapper.innerHTML += "<span class='order'>" + order + "</span>";
     num.innerText = 1;
@@ -380,6 +380,7 @@ function showPopUpCash() {
     if (orders.length != 0) {
         const popUpCash = document.getElementById("popupPayCash");
         popUpCash.style.visibility = "visible";
+        cashInput.value = "Amount of Cash";
     } else {
         alert("Order First");
     }
@@ -392,19 +393,44 @@ function hidePopUpCash() {
 }
 
 function calculateChange() {
-
-    if (cashInput.value < totalPrice) {
-        alert("Insufficient cash");
-    } else {
         let change = cashInput.value - totalPrice;
         return change;
-    }
 }
 
 function popupChange(change) {
-    document.getElementById("cashText").innerText = "Cash Inputted: " + cashInput.value;
-    document.getElementById("changeText").innerText = "Change: " + change;
+    if (cashInput.value < totalPrice) {
+        alert("Insufficient cash");
+        return false;
+    }else{
+        document.getElementById("cashText").innerText = "Cash Inputted: " + cashInput.value;
+        document.getElementById("changeText").innerText = "Change: " + change;
+    
+        document.getElementById("popupChange").style.visibility = "visible";
+        hidePopUpCash();
+    }
 
-    document.getElementById("popupChange").style.visibility = "visible";
 }
 
+function jsArrayToPhp() {
+    if (
+        orders.length === 0 &&
+        size.length === 0 &&
+        addons.length === 0 &&
+        quantity.length === 0
+    ) {
+        alert("No orders added. Please add orders first.");
+        return false; // Prevent form submission
+    }
+
+    // If 'names' array is not empty, proceed with form submission
+    document.getElementById("hiddenOrders").value = JSON.stringify(orders);
+    document.getElementById("hiddenSize").value = JSON.stringify(size);
+    document.getElementById("hiddenAddons").value = JSON.stringify(addons);
+    document.getElementById("hiddenQuantity").value = JSON.stringify(quantity);
+    document.getElementById("hiddenPrice").value = JSON.stringify(price);
+    return true; // Allow form submission
+}
+
+function hideDonePopup(){
+    document.getElementById("popupChange").visibility = "hidden";
+}
