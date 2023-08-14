@@ -328,7 +328,7 @@ body {
     display: grid;
     grid-template-rows: 10% 35% 35% auto;
 
-    visibility: hidden;
+    visibility: visible;
 }
 
 .popupChange span{
