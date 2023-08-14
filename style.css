@@ -340,3 +340,12 @@ body {
     height: 60%;
     margin: 0 auto 0 auto;
 }
+
+.popupChange form{
+    display:grid;
+}
+
+.donePayment{
+    width:100%;
+    height:100%;
+}

@@ -432,5 +432,5 @@ function jsArrayToPhp() {
 }
 
 function hideDonePopup(){
-    document.getElementById("popupChange").visibility = "hidden";
+    document.getElementById("popupChange").style.visibility = "hidden";
 }

@@ -1,5 +1,57 @@
 <?php
+require_once "conn.php";
 
+if (isset($_POST["submit"])) {
+
+  $hiddenOrders = $_POST['hiddenOrders'];
+  $hiddenSize = $_POST['hiddenSize'];
+  $hiddenAddons = $_POST['hiddenAddons'];
+  $hiddenQuantity = $_POST['hiddenQuantity'];
+  $hiddenPrice = $_POST['hiddenPrice'];
+
+  $priceArray = json_decode($hiddenPrice, true);
+  $ordersArray = json_decode($hiddenOrders, true);
+  $sizesArray = json_decode($hiddenSize, true);
+  $addonsArray = json_decode($hiddenAddons, true);
+  $quantitiesArray = json_decode($hiddenQuantity, true);
+
+  if (!empty($ordersArray)) {
+    if (count($ordersArray) > 1) {
+      $insertValues = array();
+
+      for ($i = 0; $i < count($ordersArray); $i++) {
+        $price = mysqli_real_escape_string($conn, $priceArray[$i]);
+        $order = mysqli_real_escape_string($conn, $ordersArray[$i]);
+        $size = mysqli_real_escape_string($conn, $sizesArray[$i]);
+        $addons = mysqli_real_escape_string($conn, $addonsArray[$i]);
+        $quantity = mysqli_real_escape_string($conn, $quantitiesArray[$i]);
+
+        // Make sure to escape the values to prevent SQL injection
+
+        $insertValues[] = "('---' , '$order', '$size', '$addons', '$quantity', '$price', NOW(), 'DONE')";
+      }
+
+      $valuesString = implode(", ", $insertValues);
+      $sql = mysqli_query($conn, "INSERT INTO Orders (Name, `Order`, Size, Addons, Quantity, Price, Date, Status) VALUES $valuesString");
+
+      echo '<script>alert("Successfully added");</script>';
+    } else {
+      $price = mysqli_real_escape_string($conn, $priceArray[0]);
+      $order = mysqli_real_escape_string($conn, $ordersArray[0]);
+      $size = mysqli_real_escape_string($conn, $sizesArray[0]);
+      $addons = mysqli_real_escape_string($conn, $addonsArray[0]);
+      $quantity = mysqli_real_escape_string($conn, $quantitiesArray[0]);
+
+      // Make sure to escape the values to prevent SQL injection
+
+      $insertValues[] = "('---', '$order', '$size', '$addons', '$quantity', '$price', NOW(), 'DONE')";
+
+      $valuesString = implode($insertValues);
+      $sql = mysqli_query($conn, "INSERT INTO Orders (Name, `Order`, Size, Addons, Quantity, Price, Date, Status) VALUES $valuesString");
+      echo '<script>alert("Successfully added");</script>';
+    }
+  }
+}
 
 ?>
 
@@ -159,24 +211,23 @@
       <span class="cashInText" id="cashText">Cash In: </span>
       <span class="changeText" id="changeText">Change: </span>
 
-      <input type="submit" name="submit" value="Done" onclick="jsArrayToPhp(); hideDonePopup();" class="donePayment">
+      <form method="POST">
+        <input type="submit" name="submit" value="Done" onclick="jsArrayToPhp(); hideDonePopup();" class="donePayment">
+
+        <input type="hidden" name="hiddenPrice" id="hiddenPrice" value="" required>
+
+        <input type="hidden" name="hiddenOrders" id="hiddenOrders" value="" required>
+
+        <input type="hidden" name="hiddenSize" id="hiddenSize" value="" required>
+
+        <input type="hidden" name="hiddenAddons" id="hiddenAddons" value="" required>
+
+        <input type="hidden" name="hiddenQuantity" id="hiddenQuantity" value="" required>
+
+      </form>
     </div>
 
-    <input type="hidden" name="hiddenPrice" id="hiddenPrice" value="" required>
-
-    <input type="hidden" name="hiddenOrders" id="hiddenOrders" value="" required>
-
-    <input type="hidden" name="hiddenSize" id="hiddenSize" value="" required>
-
-    <input type="hidden" name="hiddenAddons" id="hiddenAddons" value="" required>
-
-    <input type="hidden" name="hiddenQuantity" id="hiddenQuantity" value="" required>
-
   </div>
-
-
-
-
 
   <script type="text/javascript" src="index.js"></script>
 </body>
